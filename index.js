@@ -47,8 +47,10 @@ app.post("/verify", function(req, res) {
     OTP.findOne({ users: code }, function(err, found) {
         if (err) {
             res.render("error")
-        } else {
+        } else if (found) {
             res.render("success")
+        } else {
+            res.render("error")
         }
     })
 })
@@ -63,7 +65,6 @@ app.post("/", function(req, res) {
     const number = req.body.number
         // random number
     let randomN = Math.floor(Math.random() * 90000) + 10000;
-    console.log(randomN)
 
     // sends random number to user number then redirects the the /verify route
     client.messages
