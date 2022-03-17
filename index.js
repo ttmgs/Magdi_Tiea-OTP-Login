@@ -62,9 +62,10 @@ app.post("/", function(req, res) {
 
     const number = req.body.number
 
-
+    // random number
     let randomN = Math.floor(Math.random() * 90000) + 10000;
     console.log(randomN)
+
 
     // sends random number to user number then redirects the the /verify route
     client.messages
@@ -85,7 +86,6 @@ app.post("/", function(req, res) {
             })
 
         })
-
 })
 
 

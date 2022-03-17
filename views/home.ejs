@@ -15,16 +15,21 @@
     <div class="form">
         <form method="post" action="/">
             <h1>HELLO 👋</h1>
-            <h2>Enter your phone number. No hyphens, dashs, etc. </h2>
-            <input name="number" placeholder="e.g. 15551235555" />
-            <button type="submit" name="button">Submit</button>
+            <h2>Welcome to Magdi's OTP Authentication</h2>
+            <input name="number" placeholder="Enter phone number e.g. 15551235555" />
+            <p id="para"></p>
+            <button onclick="again()" type="submit" name="button">Submit</button>
         </form>
-
     </div>
     </div>
 
 
-
+    <script>
+        function again() {
+            const p = document.getElementById("para")
+            p.innerHTML += "press it again"
+        }
+    </script>
 
 
 </body>
