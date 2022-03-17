@@ -61,11 +61,9 @@ app.post("/verify", function(req, res) {
 app.post("/", function(req, res) {
 
     const number = req.body.number
-
-    // random number
+        // random number
     let randomN = Math.floor(Math.random() * 90000) + 10000;
     console.log(randomN)
-
 
     // sends random number to user number then redirects the the /verify route
     client.messages
@@ -73,19 +71,22 @@ app.post("/", function(req, res) {
             to: number,
             from: '+12404883583',
             body: randomN,
-        }).then(() => {
-            const newUser = new OTP({
-                users: randomN
-            })
-            newUser.save(function(err) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    res.redirect("/verify")
-                }
-            })
+        }).then(saveUser())
 
+    function saveUser() {
+        const newUser = new OTP({
+            users: randomN
         })
+        newUser.save(function(err) {
+            if (err) {
+                console.log("error generating numb")
+            } else {
+                res.render("verify")
+            }
+        })
+    }
+
+
 })
 
 
