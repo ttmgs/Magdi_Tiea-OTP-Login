@@ -12,3 +12,7 @@ Then enter the code to be directed to the last screen
 - Mongoose
 - Twililo SMS
 - Express
+
+
+## Deployed
+https://otp-log.herokuapp.com/
