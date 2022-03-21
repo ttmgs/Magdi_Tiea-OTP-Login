@@ -63,7 +63,7 @@ app.post("/verify", function(req, res) {
 app.post("/", function(req, res) {
 
     const number = req.body.number
-        // random number
+        // generates random number between 1-9
     let randomN = Math.floor(Math.random() * 90000) + 10000;
 
     // sends random number to user number then redirects the the /verify route
@@ -86,8 +86,6 @@ app.post("/", function(req, res) {
             }
         })
     }
-
-
 })
 
 
